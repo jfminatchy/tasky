@@ -91,7 +91,7 @@ export function updateTask(updatedTask: Task, rootPath: string, parentId?: strin
   function updateInList(list: Task[]): Task[] {
     return list.map((task: Task) => {
       if (task.id === updatedTask.id) {
-        return { ...updatedTask };
+        return { ...task, ...updatedTask };
       } else if (task.subtasks && task.subtasks.length > 0) {
         return { ...task, subtasks: updateInList(task.subtasks) };
       } else {

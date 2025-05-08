@@ -76,7 +76,7 @@ server.tool(
 // MCP Tool: updateTask
 server.tool(
   "updateTask",
-  { id: z.string(), name: z.string().optional(), state: z.enum(["à faire", "en cours", "terminée"]), description: z.string().optional(), parentId: z.string().optional() },
+  { id: z.string(), name: z.string().optional(), state: z.enum(["à faire", "en cours", "terminée"]).optional(), description: z.string().optional(), parentId: z.string().optional() },
   async (params) => {
     await updateTask(params, rootPath, params.parentId);
     return { content: [{ type: "text", text: "Tâche modifiée." }] };
