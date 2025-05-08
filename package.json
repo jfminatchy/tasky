@@ -11,7 +11,7 @@
     "name": "jfminatchy",
     "url": "https://github.com/jfminatchy"
   },
-  "version": "0.2.2",
+  "version": "0.2.3",
   "engines": {
     "vscode": ">=1.70.0"
   },
