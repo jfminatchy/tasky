@@ -48,7 +48,7 @@ Tasky provides a dedicated side panel view to manage your project's development 
 
 Tasky is currently available as a VSIX file for direct installation.
 
-1.  Go to the [Tasky GitHub Releases page](https://github.com/your-github-username/tasky/releases) (placeholder - replace with your actual repo link).
+1.  Go to the [Tasky GitHub Releases page](https://github.com/jfminatchy/tasky/releases).
 2.  Download the latest `tasky-X.Y.Z.vsix` file.
 3.  Open VS Code / Windsurf.
 4.  Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`).
@@ -178,7 +178,7 @@ Tasky fournit un panneau latéral dédié pour gérer les tâches de développem
 
 Tasky est actuellement disponible en tant que fichier VSIX pour une installation directe.
 
-1.  Allez sur la [page des Releases GitHub de Tasky](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/your-github-username/tasky/releases) (espace réservé - remplacez par le lien de votre dépôt réel).
+1.  Allez sur la [page des Releases GitHub de Tasky](https://github.com/jfminatchy/tasky/releases).
 2.  Téléchargez le dernier fichier `tasky-X.Y.Z.vsix`.
 3.  Ouvrez VS Code / Windsurf.
 4.  Ouvrez la Palette de Commandes (`Ctrl+Shift+P` ou `Cmd+Shift+P`).
