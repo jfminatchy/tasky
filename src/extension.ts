@@ -370,6 +370,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(
         helloDisposable,
+        startMcpServerDisposable,
         createTasksFileDisposable,
         readTasksFileDisposable,
         writeTasksFileDisposable,

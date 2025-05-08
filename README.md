@@ -1,6 +1,6 @@
 # Tasky - Your Vibe Coding Task Companion ✨
 
-[![Version](https://img.shields.io/badge/version-0.2.1-blue)](https://github.com/your-github-username/tasky/releases) 
+[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/your-github-username/tasky/releases) 
 <!-- [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Open Issues](https://img.shields.io/github/issues/your-github-username/tasky)](https://github.com/your-github-username/tasky/issues)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/your-github-username/tasky/pulls) -->
@@ -103,6 +103,14 @@ Each task and subtask is a JSON object with the following structure. The `.vscod
 ### AI / MCP Integration
 
 Tasky exposes a specific set of commands and a protocol via MCP at the configured `serverUrl` (default `http://localhost:6123/mcp`), allowing AI agents to manage the tasks defined in `tasky-tasks.json`. This is where the real power of Tasky shines for Vibe Coding workflows involving AI assistance.
+
+### Future Enhancements ✨
+
+Tasky is actively being developed, and here are some features planned for future releases:
+
+* 🌍 **Internationalization (i18n):** Add support for multiple languages to make Tasky accessible to a wider audience.
+* ⚙️ **Configurable MCP Server Address:** While the server URL is already configurable, we plan to refine and potentially expand configuration options related to the MCP connection.
+* 🚦 **MCP Server Status & Control:** Integrate UI elements into the sidebar to display the status of the connected MCP server and provide controls to start, stop, or restart the server directly from the extension.
 
 <!-- 
 ### Screenshots
@@ -224,6 +232,15 @@ Chaque tâche et sous-tâche est un objet JSON avec la structure suivante. Le fi
 ### Intégration IA / MCP
 
 Tasky expose un ensemble spécifique de commandes et un protocole via le MCP à l'adresse `serverUrl` configurée (par défaut `http://localhost:6123/mcp`), permettant aux agents IA de gérer les tâches définies dans `tasky-tasks.json`. C'est là que réside la véritable puissance de Tasky pour les flux de travail de Vibe Coding impliquant l'assistance IA.
+
+### Améliorations Futures ✨
+
+Tasky est en cours de développement actif, et voici quelques fonctionnalités prévues pour les prochaines versions :
+
+* 🌍 **Internationalisation (i18n) :** Ajouter le support de plusieurs langues pour rendre Tasky accessible à un public plus large.
+* ⚙️ **Adresse du Serveur MCP Configurable :** Bien que l'URL du serveur soit déjà configurable, nous prévoyons d'affiner et potentiellement d'étendre les options de configuration liées à la connexion MCP.
+* 🚦 **État et Contrôle du Serveur MCP :** Intégrer des éléments d'interface utilisateur dans la barre latérale pour afficher l'état du serveur MCP connecté et fournir des contrôles pour démarrer, arrêter ou redémarrer le serveur directement depuis l'extension.
+
 
 ### Remerciements
 

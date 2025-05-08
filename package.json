@@ -1,7 +1,7 @@
 {
   "name": "tasky",
   "displayName": "Tasky",
-  "description": "Gestionnaire de tâches intégré pour VS Code.",
+  "description": "Your Vibe Coding Task Companion ✨",
   "repository": {
     "type": "git",
     "url": "https://github.com/jfminatchy/tasky.git"
@@ -11,7 +11,7 @@
     "name": "jfminatchy",
     "url": "https://github.com/jfminatchy"
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": {
     "vscode": ">=1.70.0"
   },
@@ -21,7 +21,18 @@
   "activationEvents": [
     "onCommand:tasky.helloWorld",
     "onCommand:tasky.activateTasky",
-    "onCommand:tasky.deactivateTasky"
+    "onCommand:tasky.deactivateTasky",
+    "onCommand:tasky.createTasksFile",
+    "onCommand:tasky.readTasksFile",
+    "onCommand:tasky.writeTasksFile",
+    "onCommand:tasky.deleteTasksFile",
+    "onCommand:tasky.addTask",
+    "onCommand:tasky.updateTask",
+    "onCommand:tasky.deleteTask",
+    "onCommand:tasky.changeTaskState",
+    "onCommand:tasky.addCompletionDetails",
+    "onCommand:tasky.moreActions",
+    "onCommand:tasky.startMcpServer"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -213,17 +224,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@modelcontextprotocol/sdk": "^1.11.0",
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.15",
     "@types/vscode": "^1.70.0",
-    "express": "^5.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^4.9.5",
     "vscode-test": "^1.6.0"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.0",
     "uuid": "^11.1.0",
-    "zod": "^3.24.4"
+    "zod": "^3.24.4",
+    "express": "^5.1.0"
   }
 }
