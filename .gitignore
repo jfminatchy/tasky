@@ -1,0 +1,9 @@
+node_modules/
+out/
+.vscode/
+!.vscode/tasky-tasks.json
+*.vsix
+cdc.md
+_DEVBOOK.md
+.windsurf
+scenario-test.md
