@@ -1,0 +1,14 @@
+**/*.ts
+**/tsconfig.json
+**/src/**
+**/test/**
+**/*.map
+.gitignore
+.vscodeignore
+node_modules
+scenario-test.md
+.windsurf
+.vscodeignore
+.vscode
+_DEVBOOK.md
+cdc.md
