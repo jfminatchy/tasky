@@ -56,16 +56,32 @@ export function addTask(newTask: Omit<Task, 'id' | 'subtasks'> & { subtasks?: Ta
   // Correction : garantir que newTask est bien défini et que subtasks est toujours un tableau
   const safeNewTask = newTask && typeof newTask === 'object' ? newTask : {};
   const newTaskId = uuidv4();
+  // if (parentId) {
+  //   console.log("Adding subtask to task " + parentId);
+  // }
+  // console.log("Adding task " + newTask.name + " with id " + newTaskId);
   const taskWithId: Task = {
-    ...safeNewTask,
-    id: newTaskId,
-    parentId
+    name: safeNewTask.name,
+    state: safeNewTask.state,
+    id: newTaskId
   };
+  if (parentId) {
+    taskWithId.parentId = parentId;
+  }
+  if (safeNewTask.description) {
+    taskWithId.description = safeNewTask.description;
+  }
+  if (safeNewTask.completionDetails) {
+    taskWithId.completionDetails = safeNewTask.completionDetails;
+  }
+
+  const updated = [...tasks, taskWithId];
+  writeTasksFile(updated, rootPath);
+
   safeNewTask?.subtasks?.forEach((subtask) => {
     addTask(subtask, rootPath, newTaskId);
   });
-  const updated = [...tasks, taskWithId];
-  writeTasksFile(updated, rootPath);
+
   return updated;
 }
 
