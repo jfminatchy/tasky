@@ -7,6 +7,8 @@
 
 ---
 
+https://github.com/user-attachments/assets/8d980303-f592-4740-95a4-980ecb20d0cc
+
 ## English 🇺🇸
 
 ### Tired of taming tasks with markdown? Tasky is here!
