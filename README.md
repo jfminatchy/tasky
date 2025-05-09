@@ -11,9 +11,9 @@
 
 ### Tired of taming tasks with markdown? Tasky is here!
 
-Let's be real. We love the *idea* of `devbook.md` or similar markdown-based task tracking within our projects during those intense vibe coding sessions. It's simple, it's file-based... until it becomes a sprawling, unmanageable beast of a document.
+Let's be real. The `devbook.md` technique is a good vibe coding approach for AI agents to stay focused on the project... until it becomes an overwhelming, poorly structured and unreadable document.
 
-Tasky is built from that very frustration! It's a **VS Code / Windsurf extension** designed to give you a structured, manageable, and *interactive* way to handle your development tasks and subtasks, right within your favorite Vibe Coding IDE. And guess what? It plays *exceptionally* well with AI agents! 🤖
+Tasky is built from that very frustration! It's a **VS Code / Windsurf extension** designed to give you a structured, manageable, and *interactive* way to handle your development tasks and subtasks. And guess what? It plays *very* well with AI agents! 🤖
 
 ### What is Tasky?
 
@@ -121,9 +121,9 @@ Tasky is actively being developed, and here are some features planned for future
 
 ### Marre de gérer les tâches avec du Markdown ? Tasky est là \!
 
-Soyons honnêtes. On adore l'idée de `devbook.md` ou d'autres méthodes de suivi de tâches basées sur Markdown au sein de nos projets pendant ces sessions intenses de vibe coding. C'est simple, basé sur des fichiers... jusqu'à ce que ça devienne une bête tentaculaire et ingérable de document.
+Soyons honnêtes. La technique `devbook.md` est une bonne approche qui permet aux agents IA de rester dans le contexte du projet. Cependant, ce devbook peut rapidement devenir un document difficile à lire, mal structuré et ingérable.
 
-Tasky est né de cette frustration même \! C'est une **extension VS Code / Windsurf** conçue pour vous offrir une manière structurée, gérable et *interactive* de gérer vos tâches et sous-tâches de développement, directement dans votre IDE de Vibe Coding préféré. Et devinez quoi ? Il s'entend bien avec les agents IA \! 🤖
+Tasky est né de cette frustration même \! C'est une **extension VS Code / Windsurf** conçue pour vous offrir une manière structurée, gérable et *interactive* de gérer vos tâches et sous-tâches de développement, directement dans votre. Et devinez quoi ? Il s'entend bien avec les agents IA \! 🤖
 
 ### Qu'est-ce que Tasky ?
 
