@@ -51,9 +51,25 @@ const server = new McpServer({
 // MCP Tool: list tasks with filters
 server.tool(
   "listTasks",
+  `List tasks in this format : 
+  {
+    "name": "Task name",
+    "description": "Task description",
+    "state": "Task state",
+    "completionDetails": "Task completion details",
+    "subtasks": [
+      {
+        "name": "Subtask name",
+        "description": "Subtask description",
+        "state": "Subtask state",
+        "completionDetails": "Subtask completion details",
+        "subtasks": [...]
+      }
+    ]
+  }`,
   {},
-  async () => {
-    const tasks = await readTasksFile(rootPath);
+  async (params) => {
+    const tasks = await listTasks(params, rootPath);
     return {
       content: [{
         type: "text",
@@ -66,6 +82,22 @@ server.tool(
 // MCP Tool: addTask
 server.tool(
   "addTask",
+  `Add a task using this format :
+  {
+    "name": "Task name",
+    "description": "Task description",
+    "state": "Task state",
+    "completionDetails": "Task completion details",
+    "subtasks": [
+      {
+        "name": "Subtask name",
+        "description": "Subtask description",
+        "state": "Subtask state",
+        "completionDetails": "Subtask completion details",
+        "subtasks": [...]
+      }
+    ]
+  }`,
   { name: z.string().min(1, "Le nom est obligatoire"), description: z.string().optional(), state: z.enum(["à faire", "en cours", "terminée"]), subtasks: z.array(TaskSchema).optional(), completionDetails: z.string().optional(), parentId: z.string().optional() },
   async (params) => {
     await addTask(params, rootPath);
@@ -76,6 +108,13 @@ server.tool(
 // MCP Tool: updateTask
 server.tool(
   "updateTask",
+  `Update a task using this format :
+  {
+    "id": "Task id",
+    "name": "Task name",
+    "description": "Task description",
+    "state": "Task state"
+  }`,
   { id: z.string(), name: z.string().optional(), state: z.enum(["à faire", "en cours", "terminée"]).optional(), description: z.string().optional(), parentId: z.string().optional() },
   async (params) => {
     await updateTask(params, rootPath);
@@ -86,6 +125,11 @@ server.tool(
 // MCP Tool: changeTaskState
 server.tool(
   "changeTaskState",
+  `Change the state of a task using this format :
+  {
+    "id": "Task id",
+    "state": "Task state"
+  }`,
   { id: z.string(), state: z.enum(["à faire", "en cours", "terminée"]) },
   async (params) => {
     await changeTaskState(params.id, params.state, rootPath);
@@ -96,6 +140,11 @@ server.tool(
 // MCP Tool: addCompletionDetails
 server.tool(
   "addCompletionDetails",
+  `Add completion details using this format :
+  {
+    "id": "Task id",
+    "completionDetails": "Completion details"
+  }`,
   { id: z.string(), completionDetails: z.string() },
   async (params) => {
     await addCompletionDetails(params.id, params.completionDetails, rootPath);
