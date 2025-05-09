@@ -60,7 +60,7 @@ Tasky is currently available as a VSIX file for direct installation.
 
 1.  Open a project folder in VS Code / Windsurf.
 2.  Open the Tasky side panel from the activity bar on the left.
-3.  Click the "On" button. This creates the initial `.vscode/tasky-tasks.json` file and enables MCP interaction.
+3.  Click the "On" button. This creates the initial `.vscode/tasky-tasks.json` file.
 4.  Use the buttons in the side panel view to add your main tasks.
 5.  Hover over tasks to reveal action buttons (add subtask, edit, delete, add completion notes).
 6.  Click the state emoji to cycle through states.
@@ -173,11 +173,11 @@ Tasky est actuellement disponible en tant que fichier VSIX pour une installation
 
 1.  Ouvrez un dossier de projet dans VS Code / Windsurf.
 2.  Ouvrez le panneau latéral Tasky depuis la barre d'activité à gauche.
-3.  Cliquez sur le bouton "Activer Tasky". Cela crée le fichier `.vscode/tasky-tasks.json` initial et active l'interaction MCP via `http://localhost:6123/mcp`.
+3.  Cliquez sur le bouton "On". Cela crée le fichier `.vscode/tasky-tasks.json` initial.
 4.  Utilisez les boutons dans la vue du panneau latéral pour ajouter vos tâches principales.
 5.  Passez la souris sur les tâches pour révéler les boutons d'action (ajouter sous-tâche, modifier, supprimer, ajouter notes de complétion).
 6.  Cliquez sur l'emoji d'état pour parcourir les états.
-7.  Si vous utilisez un agent IA, assurez-vous qu'il est en cours d'exécution et configuré pour se connecter au serveur MCP (par défaut `http://localhost:6123/mcp`). Votre agent IA peut maintenant interagir avec vos tâches via le protocole défini \!
+7.  Si vous utilisez un agent IA, assurez-vous qu'il est configuré pour se connecter au serveur MCP (par défaut `http://localhost:6123/mcp`). Votre agent IA peut maintenant interagir avec vos tâches via le protocole défini \!
 
 ### Configuration
 
