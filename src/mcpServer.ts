@@ -16,7 +16,7 @@ export async function startMcpServer(rootPath: string) {
     name: z.string().min(1, "Le nom est obligatoire"),
     description: z.string().optional(),
     state: z.enum(["à faire", "en cours", "terminée"]),
-    subtasks: z.array(TaskSchema).default([]),
+    subtasks: z.array(TaskSchema).optional(),
     completionDetails: z.string().optional(),
   })
 );
@@ -78,7 +78,7 @@ server.tool(
   "updateTask",
   { id: z.string(), name: z.string().optional(), state: z.enum(["à faire", "en cours", "terminée"]).optional(), description: z.string().optional(), parentId: z.string().optional() },
   async (params) => {
-    await updateTask(params, rootPath, params.parentId);
+    await updateTask(params, rootPath);
     return { content: [{ type: "text", text: "Tâche modifiée." }] };
   }
 );
@@ -98,7 +98,7 @@ server.tool(
   "addCompletionDetails",
   { id: z.string(), completionDetails: z.string() },
   async (params) => {
-    await addCompletionDetails(rootPath, params.id, params.completionDetails);
+    await addCompletionDetails(params.id, params.completionDetails, rootPath);
     return { content: [{ type: "text", text: "Raison de complétion ajoutée." }] };
   }
 );

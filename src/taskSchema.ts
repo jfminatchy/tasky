@@ -7,8 +7,9 @@ export const TaskSchema: z.ZodType<any> = z.lazy(() =>
     name: z.string().min(1, "Le nom est obligatoire"),
     description: z.string().optional(),
     state: z.enum(["à faire", "en cours", "terminée"]),
-    subtasks: z.array(TaskSchema).default([]),
+    subtasks: z.array(TaskSchema).optional(),
     completionDetails: z.string().optional(),
+    parentId: z.string().optional(),
   })
 );
 

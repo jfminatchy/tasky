@@ -14,7 +14,6 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Lancement du serveur MCP SSE (une seule fois)
     const rootPath = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
-    console.log('rootPath', rootPath);
     if (rootPath) {
         startMcpServer(rootPath);
     } else {
@@ -133,8 +132,12 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     // Commande MCP : Ajouter une tâche ou sous-tâche
-    let addTaskDisposable = vscode.commands.registerCommand('tasky.addTask', async (_, parentId) => {
+    let addTaskDisposable = vscode.commands.registerCommand('tasky.addTask', async (parentTask?: TaskTreeItem) => {
     try {
+        let parentId;
+        if (parentTask) {
+            parentId = parentTask.task.id;
+        }
         const rootPath = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
         if (!rootPath) {
             vscode.window.showErrorMessage('Aucun dossier de workspace ouvert.');
@@ -170,6 +173,10 @@ export function activate(context: vscode.ExtensionContext) {
     }
 });
 
+let addFirstLevelTask = vscode.commands.registerCommand('tasky.addFirstLevelTask', async () => {
+    vscode.commands.executeCommand('tasky.addTask');
+});
+
 
     // Commande MCP : Modifier une tâche ou sous-tâche
     let updateTaskDisposable = vscode.commands.registerCommand('tasky.updateTask', async (taskTreeItem: TaskTreeItem, parentId) => {
@@ -199,7 +206,6 @@ export function activate(context: vscode.ExtensionContext) {
             prompt: 'Modifier la description',
             value: foundTask.description || ''
         });
-        if (newDescription === undefined) return;
         const states = [
             { label: 'à faire' },
             { label: 'en cours' },
@@ -214,24 +220,7 @@ export function activate(context: vscode.ExtensionContext) {
         const newState = picked?.label;
         if (!newState) return;
         // Mettre à jour la tâche
-        function updateInList(list: Task[]): Task[] {
-            return list.map((t) => {
-                if (t.id === targetId) {
-                    return {
-                        ...t,
-                        name: newName,
-                        description: newDescription,
-                        state: newState
-                    };
-                } else if (t.subtasks && t.subtasks.length > 0) {
-                    return { ...t, subtasks: updateInList(t.subtasks) };
-                } else {
-                    return t;
-                }
-            });
-        }
-        const updatedTasks = updateInList(tasks);
-        writeTasksFile(updatedTasks, rootPath);
+        updateTask({ id: targetId, name: newName, description: newDescription, state: newState }, rootPath);
         vscode.window.showInformationMessage('Tâche modifiée avec succès.');
         return true;
     } catch (error) {
@@ -376,6 +365,7 @@ export function activate(context: vscode.ExtensionContext) {
         writeTasksFileDisposable,
         deleteTasksFileDisposable,
         addTaskDisposable,
+        addFirstLevelTask,
         updateTaskDisposable,
         deleteTaskDisposable,
         changeTaskStateDisposable,

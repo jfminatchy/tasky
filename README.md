@@ -1,6 +1,6 @@
 # Tasky - Your Vibe Coding Task Companion ✨
 
-[![Version](https://img.shields.io/badge/version-0.2.4-blue)](https://github.com/jfminatchy/tasky/releases) 
+[![Version](https://img.shields.io/badge/version-0.3.0-blue)](https://github.com/jfminatchy/tasky/releases) 
 <!-- [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Open Issues](https://img.shields.io/github/issues/your-github-username/tasky)](https://github.com/your-github-username/tasky/issues)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/your-github-username/tasky/pulls) -->

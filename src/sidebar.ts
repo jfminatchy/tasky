@@ -15,7 +15,7 @@ export class TaskTreeItem extends vscode.TreeItem {
     this.tooltip = task.description || '';
     this.contextValue = 'task';
     this.iconPath = new vscode.ThemeIcon(
-      task.state === 'terminée' ? 'check' : task.state === 'en cours' ? 'sync~spin' : 'circle-outline'
+      task.state === 'terminée' ? 'check' : task.state === 'en cours' ? 'sync' : 'circle-outline'
     );
   }
 }
@@ -42,10 +42,21 @@ export class TaskTreeDataProvider implements vscode.TreeDataProvider<TaskTreeIte
     }
     const tasks = (readTasksFile(rootPath) as (Task | null)[]).filter((t): t is Task => !!t && typeof t === 'object');
     if (!element) {
-      return Promise.resolve(tasks.map((task: Task) => new TaskTreeItem(task, vscode.TreeItemCollapsibleState.Collapsed)));
+      return Promise.resolve(
+        tasks
+        .filter((t): t is Task => !t.parentId)
+        .map((task: Task) => new TaskTreeItem(
+          task, 
+          tasks.filter((t): t is Task => t.parentId === task.id).length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None
+        )));
     } else {
       return Promise.resolve(
-        (element.task.subtasks || []).map((subtask: Task) => new TaskTreeItem(subtask, vscode.TreeItemCollapsibleState.Collapsed))
+        tasks
+        .filter((t): t is Task => t.parentId === element.task.id)
+        .map((subtask: Task) => new TaskTreeItem(
+          subtask, 
+          tasks.filter((t): t is Task => t.parentId === subtask.id).length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None
+        ))
       );
     }
   }

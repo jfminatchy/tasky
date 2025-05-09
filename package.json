@@ -11,7 +11,7 @@
     "name": "jfminatchy",
     "url": "https://github.com/jfminatchy"
   },
-  "version": "0.2.4",
+  "version": "0.3.0",
   "engines": {
     "vscode": ">=1.70.0"
   },
@@ -47,9 +47,17 @@
           "title": "🔄️"
         },
         {
-          "command": "tasky.moreActions",
+          "command": "tasky.addTask",
           "when": "view == tasky-tasks && viewItem == task && taskyTasksFileExists",
           "group": "inline@2",
+          "icon": "$(add)",
+          "tooltip": "Ajouter une tâche",
+          "title": "+"
+        },
+        {
+          "command": "tasky.moreActions",
+          "when": "view == tasky-tasks && viewItem == task && taskyTasksFileExists",
+          "group": "inline@3",
           "icon": "$(ellipsis)",
           "tooltip": "Afficher plus d'actions"
         }
@@ -82,7 +90,7 @@
       ],
       "view/title": [
         {
-          "command": "tasky.addTask",
+          "command": "tasky.addFirstLevelTask",
           "when": "view == tasky-tasks",
           "group": "navigation",
           "title": "+"
@@ -204,6 +212,13 @@
         "shortTitle": "MCP",
         "tooltip": "Démarrer le serveur MCP",
         "icon": "$(server)"
+      },
+      {
+        "command": "tasky.addFirstLevelTask",
+        "title": "Tasky: Ajouter une tâche de niveau 1",
+        "shortTitle": "+",
+        "tooltip": "Ajouter une tâche de niveau 1",
+        "icon": "$(add)"
       }
     ],
     "configuration": {
